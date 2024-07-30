@@ -8,7 +8,7 @@ from profanity_check import predict_prob
 
 group_router = Router()
 
-BAD_WORDS = ("тупой", "дурак", "дебил")
+
 
 
 @group_router.message(Command("ban", prefix="!"))
