@@ -1,3 +1,5 @@
+from tokenize import group
+
 from aiogram import Router, types
 from aiogram.filters.command import Command
 from bot_config import bot
@@ -23,7 +25,7 @@ async def ban_user(message: types.Message):
         )
 
 
-@group_router.message()
+@group_router.message(lambda m:str(m.chat.id).startswith('-100'))
 async def filter_bad_words(message: types.Message):
     degree=predict_prob([message.text])
     if degree>0.6:
